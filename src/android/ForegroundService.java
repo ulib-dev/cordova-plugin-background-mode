@@ -132,7 +132,7 @@ public class ForegroundService extends Service {
             if (Build.VERSION.SDK_INT < 34) {
             startForeground(NOTIFICATION_ID, makeNotification());
             } else {
-                startForeground(NOTIFICATION_ID, makeNotification(),android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE);
+                startForeground(NOTIFICATION_ID, makeNotification(),android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PLAYBACK);
             }
         }
 
