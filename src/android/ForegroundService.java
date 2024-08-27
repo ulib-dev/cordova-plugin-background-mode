@@ -129,7 +129,11 @@ public class ForegroundService extends Service {
         boolean isSilent    = settings.optBoolean("silent", false);
 
         if (!isSilent) {
+            if (Build.VERSION.SDK_INT < 34) {
             startForeground(NOTIFICATION_ID, makeNotification());
+            } else {
+                startForeground(NOTIFICATION_ID, makeNotification(),android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE);
+            }
         }
 
         PowerManager pm = (PowerManager)getSystemService(POWER_SERVICE);
